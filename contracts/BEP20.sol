@@ -1,7 +1,7 @@
 pragma solidity ^0.4.18;
 
-import "./IBEP20.sol";
-import "../../math/SafeMath.sol";
+import "./interfaces/IBEP20.sol";
+import "./math/SafeMath.sol";
 
 /**
  * @dev Implementation of the `IBEP20` interface.
