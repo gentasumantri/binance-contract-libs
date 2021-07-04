@@ -15,7 +15,7 @@ contract WBNB is IWBNB {
   mapping(address => uint256) public balanceOf;
   mapping(address => mapping(address => uint256)) public allowance;
 
-  function() public payable {
+  function() external payable {
     deposit();
   }
 
