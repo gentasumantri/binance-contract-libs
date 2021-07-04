@@ -9,8 +9,7 @@
   "license": "MIT",
   "files": [
     "/contracts/**/*.sol",
-    "/build/contracts/*.json",
-    "!/build/contracts/*.dbg.json"
+    "/build/**"
   ],
   "scripts": {
     "compile": "hardhat compile",
