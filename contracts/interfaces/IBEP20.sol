@@ -1,30 +1,14 @@
 pragma solidity ^0.5.0;
 
+/**
+ * @dev Interface of the BEP20 standard as defined in the EIP. Does not include
+ * the optional functions; to access them see {BEP20Detailed}.
+ */
 interface IBEP20 {
   /**
    * @dev Returns the amount of tokens in existence.
    */
   function totalSupply() external view returns (uint256);
-
-  /**
-   * @dev Returns the token decimals.
-   */
-  function decimals() external view returns (uint8);
-
-  /**
-   * @dev Returns the token symbol.
-   */
-  function symbol() external view returns (string memory);
-
-  /**
-   * @dev Returns the token name.
-   */
-  function name() external view returns (string memory);
-
-  /**
-   * @dev Returns the bep token owner.
-   */
-  function getOwner() external view returns (address);
 
   /**
    * @dev Returns the amount of tokens owned by `account`.
@@ -47,7 +31,7 @@ interface IBEP20 {
    *
    * This value changes when {approve} or {transferFrom} are called.
    */
-  function allowance(address _owner, address spender) external view returns (uint256);
+  function allowance(address owner, address spender) external view returns (uint256);
 
   /**
    * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
