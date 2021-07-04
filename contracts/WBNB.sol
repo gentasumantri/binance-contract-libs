@@ -1,6 +1,8 @@
 pragma solidity ^0.4.18;
 
-contract WBNB {
+import "./interfaces/IWBNB.sol";
+
+contract WBNB is IWBNB {
   string public name = "Wrapped BNB";
   string public symbol = "WBNB";
   uint8 public decimals = 18;
