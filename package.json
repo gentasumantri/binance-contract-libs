@@ -1,0 +1,51 @@
+{
+  "name": "@gsx/binance-contract-libs",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gentasumantri/binance-contract-libs"
+  },
+  "author": "genta",
+  "license": "MIT",
+  "files": [
+    "/contracts/**/*.sol",
+    "/build/contracts/*.json"
+  ],
+  "scripts": {
+    "compile": "hardhat compile",
+    "coverage": "hardhat coverage",
+    "lint": "yarn lint:js && yarn lint:sol",
+    "lint:fix": "yarn lint:js:fix && yarn lint:sol:fix",
+    "lint:sol": "solhint contracts/**/*.sol",
+    "lint:sol:fix": "solhint contracts/**/*.sol --fix",
+    "lint:js": "eslint . --ignore-path .gitignore",
+    "lint:js:fix": "eslint . --ignore-path .gitignore --fix",
+    "migrate-to-testnet": "truffle migrate --network bscTestNet --reset",
+    "migrate-to-localhost": "truffle migrate --network localhost --reset",
+    "prettier": "yarn prettier:js && yarn prettier:sol",
+    "prettier:fix": "yarn prettier:js:fix && yarn prettier:sol:fix",
+    "prettier:js": "prettier --check **.js --ignore-path .gitignore",
+    "prettier:js:fix": "prettier --check **.js --ignore-path .gitignore --write",
+    "prettier:sol": "prettier --check contracts/**/*.sol",
+    "prettier:sol:fix": "prettier --check contracts/**/*.sol --write",
+    "reset": "rimraf build artifacts cache .coverage_* yarn-*",
+    "test": "hardhat test"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "eslint": "^7.30.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-mocha-no-only": "^1.1.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.4.1",
+    "hardhat": "^2.4.1",
+    "prettier": "^2.3.2",
+    "prettier-plugin-solidity": "^1.0.0-beta.13",
+    "rimraf": "^3.0.2",
+    "solhint": "^3.3.6"
+  }
+}
