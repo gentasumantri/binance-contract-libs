@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gentasumantri/binance-contract-libs"
+    "url": "https://github.com/gentasumantri/binance-contract-libs.git"
   },
   "author": "genta",
   "license": "MIT",
