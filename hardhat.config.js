@@ -10,7 +10,4 @@ module.exports = {
       },
     },
   },
-  paths: {
-    artifacts: './build',
-  },
 };
