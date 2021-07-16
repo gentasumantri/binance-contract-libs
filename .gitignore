@@ -4,15 +4,9 @@ node_modules
 # truffle
 build
 
-# buidler
+# hardhat
 cache
 artifacts
-coverage
-coverage.json
-.coverage_*
 
 # environment variables
 .env
-
-# yarn
-yarn-*
