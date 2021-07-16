@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-import "./interfaces/IWBNB.sol";
+import "./IWBNB.sol";
 
 contract WBNB is IWBNB {
   string public name = "Wrapped BNB";
