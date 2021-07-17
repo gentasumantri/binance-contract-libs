@@ -99,6 +99,40 @@ contract('BEP20', function (accounts) {
     });
   });
 
+  describe('withdraw', function () {
+    const amount = ether('1');
+
+    beforeEach(async function () {
+      await this.token.deposit({ from: initialHolder, value: amount });
+      expect(await this.token.balanceOf(initialHolder)).to.be.bignumber.equal(amount);
+      expect(await this.token.totalSupply()).to.be.bignumber.equal(amount);
+      this.preBNBBalance = await balance.current(initialHolder);
+      this.logs = await this.token.withdraw(amount, { from: initialHolder });
+    });
+
+    it('emits a Withdrawal event', async function () {
+      expectEvent(this.logs, 'Withdrawal', {
+        src: initialHolder,
+        wad: amount,
+      });
+    });
+
+    it('BNB Balance should increment', async function () {
+      const gasUsed = new BN(this.logs.receipt.cumulativeGasUsed);
+      const gasTotal = gasUsed.mul(this.gasPrice);
+
+      expect(await balance.current(initialHolder)).to.be.bignumber.equal(this.preBNBBalance.sub(gasTotal).add(amount));
+    });
+
+    it('WBNB Balance should zero', async function () {
+      expect(await this.token.balanceOf(initialHolder)).to.be.bignumber.equal('0');
+    });
+
+    it('totalSupply should equal zero', async function () {
+      expect(await this.token.totalSupply()).to.be.bignumber.equal('0');
+    });
+  });
+
   describe('BEP20 behaviour', function () {
     const amount = ether('1');
 
