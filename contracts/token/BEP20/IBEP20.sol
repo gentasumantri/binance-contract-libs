@@ -1,8 +1,9 @@
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.5.0;
 
 /**
- * @dev Interface of the BEP20 standard as defined in the EIP. Does not include
- * the optional functions; to access them see {BEP20Detailed}.
+ * @dev Interface of the BEP20 standard as defined in the EIP.
  */
 interface IBEP20 {
   /**
