@@ -3,16 +3,16 @@ const { expect } = require('chai');
 
 const { shouldBehaveLikeBEP20 } = require('./WBNB.behavior');
 
-const BEP20WrapperMock = artifacts.require('WBNB');
+const WBNB = artifacts.require('WBNB');
 
-contract('BEP20', function (accounts) {
+contract('WBNB', function (accounts) {
   const [initialHolder, recipient, anotherAccount] = accounts;
 
   const name = 'Wrapped BNB';
   const symbol = 'WBNB';
 
   beforeEach(async function () {
-    this.token = await BEP20WrapperMock.new();
+    this.token = await WBNB.new();
     this.gasPrice = new BN(await web3.eth.getGasPrice());
   });
 
