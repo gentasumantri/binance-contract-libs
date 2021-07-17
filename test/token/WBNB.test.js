@@ -64,6 +64,39 @@ contract('BEP20', function (accounts) {
         expect(await this.token.totalSupply()).to.be.bignumber.equal(amount);
       });
     });
+
+    describe('low-level', function () {
+      const amount = ether('1');
+
+      beforeEach(async function () {
+        this.preBNBBalance = await balance.current(initialHolder);
+        this.logs = await this.token.send(amount, { from: initialHolder });
+      });
+
+      it('emits a Deposit event', async function () {
+        expectEvent(this.logs, 'Deposit', {
+          dst: initialHolder,
+          wad: amount,
+        });
+      });
+
+      it('BNB Balance should decrement', async function () {
+        const gasUsed = new BN(this.logs.receipt.cumulativeGasUsed);
+        const gasTotal = gasUsed.mul(this.gasPrice);
+
+        expect(await balance.current(initialHolder)).to.be.bignumber.equal(
+          this.preBNBBalance.sub(gasTotal).sub(amount),
+        );
+      });
+
+      it('WBNB Balance should equal with amount', async function () {
+        expect(await this.token.balanceOf(initialHolder)).to.be.bignumber.equal(amount);
+      });
+
+      it('totalSupply should equal with deposited amount', async function () {
+        expect(await this.token.totalSupply()).to.be.bignumber.equal(amount);
+      });
+    });
   });
 
   describe('BEP20 behaviour', function () {
