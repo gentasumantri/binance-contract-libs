@@ -85,7 +85,7 @@ function shouldBehaveLikeBEP20(errorPrefix, initialSupply, initialHolder, recipi
             const amount = initialSupply.addn(1);
 
             it('reverts', async function () {
-              await expectRevert(
+              await expectRevert.unspecified(
                 this.token.transferFrom(tokenOwner, to, amount, { from: spender }),
                 `${errorPrefix}: transfer amount exceeds balance`,
               );
@@ -102,7 +102,7 @@ function shouldBehaveLikeBEP20(errorPrefix, initialSupply, initialHolder, recipi
             const amount = initialSupply;
 
             it('reverts', async function () {
-              await expectRevert(
+              await expectRevert.unspecified(
                 this.token.transferFrom(tokenOwner, to, amount, { from: spender }),
                 `${errorPrefix}: transfer amount exceeds allowance`,
               );
@@ -113,7 +113,7 @@ function shouldBehaveLikeBEP20(errorPrefix, initialSupply, initialHolder, recipi
             const amount = initialSupply.addn(1);
 
             it('reverts', async function () {
-              await expectRevert(
+              await expectRevert.unspecified(
                 this.token.transferFrom(tokenOwner, to, amount, { from: spender }),
                 `${errorPrefix}: transfer amount exceeds balance`,
               );
@@ -172,7 +172,10 @@ function shouldBehaveLikeBEP20Transfer(errorPrefix, from, to, balance, transfer)
       const amount = balance.addn(1);
 
       it('reverts', async function () {
-        await expectRevert(transfer.call(this, from, to, amount), `${errorPrefix}: transfer amount exceeds balance`);
+        await expectRevert.unspecified(
+          transfer.call(this, from, to, amount),
+          `${errorPrefix}: transfer amount exceeds balance`,
+        );
       });
     });
 
