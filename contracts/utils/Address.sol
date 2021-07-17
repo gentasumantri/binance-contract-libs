@@ -56,7 +56,6 @@ library Address {
 
     // (bool success, ) = recipient.call{ value: amount }("");
 
-    // solhint-disable-next-line avoid-call-value, avoid-low-level-calls
     (bool success, ) = recipient.call.value(amount)("");
     require(success, "Address: unable to send value, recipient may have reverted");
   }
@@ -133,7 +132,6 @@ library Address {
 
     // (bool success, bytes memory returndata) = target.call{ value: value }(data);
 
-    // solhint-disable-next-line avoid-call-value, avoid-low-level-calls
     (bool success, bytes memory returndata) = target.call.value(value)(data);
     return _verifyCallResult(success, returndata, errorMessage);
   }
