@@ -264,9 +264,9 @@ function shouldBehaveLikeBEP20Approve(errorPrefix, owner, spender, supply, appro
         const { logs } = await approve.call(this, owner, spender, amount);
 
         expectEvent.inLogs(logs, 'Approval', {
-          owner: owner,
-          spender: spender,
-          value: amount,
+          src: owner,
+          guy: spender,
+          wad: amount,
         });
       });
 
@@ -298,9 +298,9 @@ function shouldBehaveLikeBEP20Approve(errorPrefix, owner, spender, supply, appro
         const { logs } = await approve.call(this, owner, spender, amount);
 
         expectEvent.inLogs(logs, 'Approval', {
-          owner: owner,
-          spender: spender,
-          value: amount,
+          src: owner,
+          guy: spender,
+          wad: amount,
         });
       });
 
