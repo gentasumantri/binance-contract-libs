@@ -64,9 +64,9 @@ function shouldBehaveLikeBEP20(errorPrefix, initialSupply, initialHolder, recipi
               const { logs } = await this.token.transferFrom(tokenOwner, to, amount, { from: spender });
 
               expectEvent.inLogs(logs, 'Transfer', {
-                from: tokenOwner,
-                to: to,
-                value: amount,
+                src: tokenOwner,
+                dst: to,
+                wad: amount,
               });
             });
 
@@ -194,9 +194,9 @@ function shouldBehaveLikeBEP20Transfer(errorPrefix, from, to, balance, transfer)
         const { logs } = await transfer.call(this, from, to, amount);
 
         expectEvent.inLogs(logs, 'Transfer', {
-          from,
-          to,
-          value: amount,
+          src: from,
+          dst: to,
+          wad: amount,
         });
       });
     });
@@ -216,9 +216,9 @@ function shouldBehaveLikeBEP20Transfer(errorPrefix, from, to, balance, transfer)
         const { logs } = await transfer.call(this, from, to, amount);
 
         expectEvent.inLogs(logs, 'Transfer', {
-          from,
-          to,
-          value: amount,
+          src: from,
+          dst: to,
+          wad: amount,
         });
       });
     });
