@@ -11,4 +11,13 @@ module.exports = {
       },
     },
   },
+  mocha: {
+    reporter: 'mochawesome',
+    reporterOptions: {
+      json: false,
+      charts: true,
+      autoOpen: true,
+      overwrite: true,
+    },
+  },
 };
