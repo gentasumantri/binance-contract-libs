@@ -122,35 +122,47 @@ function shouldBehaveLikeBEP20(errorPrefix, initialSupply, initialHolder, recipi
         });
       });
 
-      describe('when the recipient is the zero address', function () {
-        const amount = initialSupply;
-        const to = ZERO_ADDRESS;
+      /**
+       * there is no zero address check
+       */
 
-        beforeEach(async function () {
-          await this.token.approve(spender, amount, { from: tokenOwner });
-        });
+      /*
+          describe('when the recipient is the zero address', function () {
+            const amount = initialSupply;
+            const to = ZERO_ADDRESS;
 
-        it('reverts', async function () {
-          await expectRevert(
-            this.token.transferFrom(tokenOwner, to, amount, { from: spender }),
-            `${errorPrefix}: transfer to the zero address`,
-          );
-        });
-      });
+            beforeEach(async function () {
+              await this.token.approve(spender, amount, { from: tokenOwner });
+            });
+
+            it('reverts', async function () {
+              await expectRevert(
+                this.token.transferFrom(tokenOwner, to, amount, { from: spender }),
+                `${errorPrefix}: transfer to the zero address`,
+              );
+            });
+          });
+      */
     });
 
-    describe('when the token owner is the zero address', function () {
-      const amount = 0;
-      const tokenOwner = ZERO_ADDRESS;
-      const to = recipient;
+    /**
+     * there is no zero address check
+     */
 
-      it('reverts', async function () {
-        await expectRevert(
-          this.token.transferFrom(tokenOwner, to, amount, { from: spender }),
-          `${errorPrefix}: transfer from the zero address`,
-        );
-      });
-    });
+    /*
+        describe('when the token owner is the zero address', function () {
+          const amount = 0;
+          const tokenOwner = ZERO_ADDRESS;
+          const to = recipient;
+
+          it('reverts', async function () {
+            await expectRevert(
+              this.token.transferFrom(tokenOwner, to, amount, { from: spender }),
+              `${errorPrefix}: transfer from the zero address`,
+            );
+          });
+        });
+    */
   });
 
   describe('approve', function () {
@@ -224,14 +236,20 @@ function shouldBehaveLikeBEP20Transfer(errorPrefix, from, to, balance, transfer)
     });
   });
 
-  describe('when the recipient is the zero address', function () {
-    it('reverts', async function () {
-      await expectRevert(
-        transfer.call(this, from, ZERO_ADDRESS, balance),
-        `${errorPrefix}: transfer to the zero address`,
-      );
-    });
-  });
+  /**
+   * there is no zero address check
+   */
+
+  /*
+      describe('when the recipient is the zero address', function () {
+        it('reverts', async function () {
+          await expectRevert(
+            transfer.call(this, from, ZERO_ADDRESS, balance),
+            `${errorPrefix}: transfer to the zero address`,
+          );
+        });
+      });
+  */
 }
 
 function shouldBehaveLikeBEP20Approve(errorPrefix, owner, spender, supply, approve) {
@@ -305,14 +323,20 @@ function shouldBehaveLikeBEP20Approve(errorPrefix, owner, spender, supply, appro
     });
   });
 
-  describe('when the spender is the zero address', function () {
-    it('reverts', async function () {
-      await expectRevert(
-        approve.call(this, owner, ZERO_ADDRESS, supply),
-        `${errorPrefix}: approve to the zero address`,
-      );
-    });
-  });
+  /**
+   * there is no zero address check
+   */
+
+  /*
+      describe('when the spender is the zero address', function () {
+        it('reverts', async function () {
+          await expectRevert(
+            approve.call(this, owner, ZERO_ADDRESS, supply),
+            `${errorPrefix}: approve to the zero address`,
+          );
+        });
+      });
+  */
 }
 
 module.exports = {
