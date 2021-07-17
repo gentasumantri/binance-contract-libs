@@ -1,6 +1,5 @@
-const { BN, constants, expectEvent, expectRevert, balance, ether } = require('@openzeppelin/test-helpers');
+const { BN, expectEvent, balance, ether } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
-const { ZERO_ADDRESS, MAX_UINT256 } = constants;
 
 const { shouldBehaveLikeBEP20 } = require('./WBNB.behavior');
 
@@ -11,8 +10,6 @@ contract('BEP20', function (accounts) {
 
   const name = 'Wrapped BNB';
   const symbol = 'WBNB';
-
-  const initialSupply = new BN(100);
 
   beforeEach(async function () {
     this.token = await BEP20WrapperMock.new();
