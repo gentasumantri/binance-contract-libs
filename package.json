@@ -28,7 +28,7 @@
     "prettier:js:fix": "prettier --check **.js --ignore-path .gitignore --write",
     "prettier:sol": "prettier --check contracts/**/*.sol",
     "prettier:sol:fix": "prettier --check contracts/**/*.sol --write",
-    "reset": "rimraf build artifacts cache",
+    "reset": "rimraf build artifacts cache mochawesome-report",
     "test": "hardhat test"
   },
   "devDependencies": {
