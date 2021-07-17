@@ -32,33 +32,37 @@ contract('BEP20', function (accounts) {
   });
 
   describe('deposit', function () {
-    const amount = ether('1');
+    describe('high-level', function () {
+      const amount = ether('1');
 
-    beforeEach(async function () {
-      this.preBNBBalance = await balance.current(initialHolder);
-      this.logs = await this.token.deposit({ from: initialHolder, value: amount });
-    });
-
-    it('emits a Deposit event', async function () {
-      expectEvent(this.logs, 'Deposit', {
-        dst: initialHolder,
-        wad: amount,
+      beforeEach(async function () {
+        this.preBNBBalance = await balance.current(initialHolder);
+        this.logs = await this.token.deposit({ from: initialHolder, value: amount });
       });
-    });
 
-    it('BNB Balance should decrement', async function () {
-      const gasUsed = new BN(this.logs.receipt.cumulativeGasUsed);
-      const gasTotal = gasUsed.mul(this.gasPrice);
+      it('emits a Deposit event', async function () {
+        expectEvent(this.logs, 'Deposit', {
+          dst: initialHolder,
+          wad: amount,
+        });
+      });
 
-      expect(await balance.current(initialHolder)).to.be.bignumber.equal(this.preBNBBalance.sub(gasTotal).sub(amount));
-    });
+      it('BNB Balance should decrement', async function () {
+        const gasUsed = new BN(this.logs.receipt.cumulativeGasUsed);
+        const gasTotal = gasUsed.mul(this.gasPrice);
 
-    it('WBNB Balance should equal with amount', async function () {
-      expect(await this.token.balanceOf(initialHolder)).to.be.bignumber.equal(amount);
-    });
+        expect(await balance.current(initialHolder)).to.be.bignumber.equal(
+          this.preBNBBalance.sub(gasTotal).sub(amount),
+        );
+      });
 
-    it('totalSupply should equal with deposited amount', async function () {
-      expect(await this.token.totalSupply()).to.be.bignumber.equal(amount);
+      it('WBNB Balance should equal with amount', async function () {
+        expect(await this.token.balanceOf(initialHolder)).to.be.bignumber.equal(amount);
+      });
+
+      it('totalSupply should equal with deposited amount', async function () {
+        expect(await this.token.totalSupply()).to.be.bignumber.equal(amount);
+      });
     });
   });
 
