@@ -1,6 +1,10 @@
+// hardhat.config.js
+
 require('@nomiclabs/hardhat-waffle');
 require('@nomiclabs/hardhat-truffle5');
 require('solidity-coverage');
+
+const mochaOptions = require('./.mocharc.js');
 
 module.exports = {
   solidity: {
@@ -12,13 +16,5 @@ module.exports = {
       },
     },
   },
-  mocha: {
-    reporter: 'mochawesome',
-    reporterOptions: {
-      json: false,
-      charts: true,
-      autoOpen: true,
-      overwrite: true,
-    },
-  },
+  mocha: mochaOptions,
 };
