@@ -1,7 +1,7 @@
 {
   "name": "@gsx/bsc-genesis",
   "version": "0.6.0",
-  "repository": "https://github.com/gentasumantri/binance-contract-libs.git",
+  "repository": "https://github.com/gentasumantri/bsc-genesis",
   "author": "Genta Sumantri <gentaaaa@outlook.co.id>",
   "license": "MIT",
   "files": [
