@@ -3,9 +3,9 @@
   "rules": {
     "compiler-version": ["error", "^0.6.0"],
     "reason-string": [
-      "off",
+      "warn",
       {
-        "maxLength": 50
+        "maxLength": 70
       }
     ],
     "func-visibility": [
