@@ -1,11 +1,8 @@
 {
   "name": "@gsx/bsc-genesis",
-  "version": "0.5.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gentasumantri/binance-contract-libs.git"
-  },
-  "author": "genta",
+  "version": "0.6.0",
+  "repository": "https://github.com/gentasumantri/binance-contract-libs.git",
+  "author": "Genta Sumantri <gentaaaa@outlook.co.id>",
   "license": "MIT",
   "files": [
     "/contracts/**/*.sol",
@@ -28,7 +25,7 @@
     "prettier:js:fix": "prettier --check **.js --ignore-path .gitignore --write",
     "prettier:sol": "prettier --check contracts/**/*.sol",
     "prettier:sol:fix": "prettier --check contracts/**/*.sol --write",
-    "reset": "rimraf build artifacts cache mochawesome-report",
+    "reset": "rimraf artifacts build cache mochawesome-report coverage coverage.json",
     "test": "hardhat test"
   },
   "devDependencies": {
