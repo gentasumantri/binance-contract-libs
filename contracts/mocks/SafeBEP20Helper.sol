@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.6.0;
 
 import "../utils/Context.sol";
 import "../token/BEP20/IBEP20.sol";
