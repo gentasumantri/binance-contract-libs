@@ -3,8 +3,8 @@
 pragma solidity ^0.6.0;
 
 import "../IBEP20.sol";
-import "../../../utils/math/SafeMath.sol";
 import "../../../utils/Address.sol";
+import "@openzeppelin/contracts/math/SafeMath.sol";
 
 /**
  * @title SafeBEP20
@@ -51,7 +51,6 @@ library SafeBEP20 {
     // safeApprove should only be called when setting an initial allowance,
     // or when resetting it to zero. To increase and decrease it, use
     // 'safeIncreaseAllowance' and 'safeDecreaseAllowance'
-    // solhint-disable-next-line max-line-length
     require(
       (value == 0) || (token.allowance(address(this), spender) == 0),
       "SafeBEP20: approve from non-zero to non-zero allowance"
