@@ -15,7 +15,7 @@ contract BEP20DecimalsMock is BEP20 {
     _decimals = decimals_;
   }
 
-  function decimals() public view returns (uint8) {
+  function decimals() public view override returns (uint8) {
     return _decimals;
   }
 }

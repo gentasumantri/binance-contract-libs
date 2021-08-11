@@ -60,7 +60,7 @@ contract BEP20 is Context, IBEP20, IBEP20Metadata {
   /**
    * @dev Returns the name of the token.
    */
-  function name() public view returns (string memory) {
+  function name() public view virtual override returns (string memory) {
     return _name;
   }
 
@@ -68,7 +68,7 @@ contract BEP20 is Context, IBEP20, IBEP20Metadata {
    * @dev Returns the symbol of the token, usually a shorter version of the
    * name.
    */
-  function symbol() public view returns (string memory) {
+  function symbol() public view virtual override returns (string memory) {
     return _symbol;
   }
 
@@ -85,21 +85,21 @@ contract BEP20 is Context, IBEP20, IBEP20Metadata {
    * no way affects any of the arithmetic of the contract, including
    * {IBEP20-balanceOf} and {IBEP20-transfer}.
    */
-  function decimals() public view returns (uint8) {
+  function decimals() public view virtual override returns (uint8) {
     return 18;
   }
 
   /**
    * @dev See {IBEP20-totalSupply}.
    */
-  function totalSupply() public view returns (uint256) {
+  function totalSupply() public view virtual override returns (uint256) {
     return _totalSupply;
   }
 
   /**
    * @dev See {IBEP20-balanceOf}.
    */
-  function balanceOf(address account) public view returns (uint256) {
+  function balanceOf(address account) public view virtual override returns (uint256) {
     return _balances[account];
   }
 
@@ -111,7 +111,7 @@ contract BEP20 is Context, IBEP20, IBEP20Metadata {
    * - `recipient` cannot be the zero address.
    * - the caller must have a balance of at least `amount`.
    */
-  function transfer(address recipient, uint256 amount) public returns (bool) {
+  function transfer(address recipient, uint256 amount) public virtual override returns (bool) {
     _transfer(_msgSender(), recipient, amount);
     return true;
   }
@@ -119,7 +119,7 @@ contract BEP20 is Context, IBEP20, IBEP20Metadata {
   /**
    * @dev See {IBEP20-allowance}.
    */
-  function allowance(address owner, address spender) public view returns (uint256) {
+  function allowance(address owner, address spender) public view virtual override returns (uint256) {
     return _allowances[owner][spender];
   }
 
@@ -130,7 +130,7 @@ contract BEP20 is Context, IBEP20, IBEP20Metadata {
    *
    * - `spender` cannot be the zero address.
    */
-  function approve(address spender, uint256 amount) public returns (bool) {
+  function approve(address spender, uint256 amount) public virtual override returns (bool) {
     _approve(_msgSender(), spender, amount);
     return true;
   }
@@ -151,7 +151,7 @@ contract BEP20 is Context, IBEP20, IBEP20Metadata {
     address sender,
     address recipient,
     uint256 amount
-  ) public returns (bool) {
+  ) public virtual override returns (bool) {
     _transfer(sender, recipient, amount);
     _approve(
       sender,

@@ -42,6 +42,7 @@ contract AddressImpl {
   }
 
   // sendValue's tests require the contract to hold Ether
-  // receive() external payable {}
-  function() external payable {}
+  receive() external payable {
+    // solhint-disable-previous-line no-empty-blocks
+  }
 }

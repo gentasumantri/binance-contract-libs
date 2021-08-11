@@ -9,8 +9,7 @@ contract EtherReceiverMock {
     _acceptEther = acceptEther;
   }
 
-  // receive() external payable {
-  function() external payable {
+  receive() external payable {
     if (!_acceptEther) {
       revert();
     }

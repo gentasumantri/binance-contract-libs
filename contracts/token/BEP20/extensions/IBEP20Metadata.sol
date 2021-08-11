@@ -2,6 +2,8 @@
 
 pragma solidity ^0.6.0;
 
+import "../IBEP20.sol";
+
 /**
  * @dev Interface for the optional metadata functions from the BEP20 standard.
  */
