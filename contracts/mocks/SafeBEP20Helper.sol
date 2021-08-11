@@ -2,9 +2,10 @@
 
 pragma solidity ^0.6.0;
 
-import "../utils/Context.sol";
 import "../token/BEP20/IBEP20.sol";
 import "../token/BEP20/utils/SafeBEP20.sol";
+
+import "@openzeppelin/contracts/utils/Context.sol";
 
 contract BEP20ReturnFalseMock is Context {
   uint256 private _allowance;
