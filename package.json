@@ -5,22 +5,19 @@
   "author": "Genta Sumantri <gentaaaa@outlook.co.id>",
   "license": "MIT",
   "files": [
-    "/contracts/**/*.sol",
-    "/build/**"
+    "/contracts/**/*.sol"
   ],
   "scripts": {
     "compile": "hardhat compile",
     "coverage": "hardhat coverage",
-    "lint": "yarn lint:js && yarn lint:sol",
-    "lint:fix": "yarn lint:js:fix && yarn lint:sol:fix",
+    "lint": "npm run lint:js && npm run lint:sol",
+    "lint:fix": "npm run lint:js:fix && npm run lint:sol:fix",
     "lint:sol": "solhint contracts/**/*.sol",
     "lint:sol:fix": "solhint contracts/**/*.sol --fix",
     "lint:js": "eslint . --ignore-path .gitignore",
     "lint:js:fix": "eslint . --ignore-path .gitignore --fix",
-    "migrate-to-testnet": "truffle migrate --network bscTestNet --reset",
-    "migrate-to-localhost": "truffle migrate --network localhost --reset",
-    "prettier": "yarn prettier:js && yarn prettier:sol",
-    "prettier:fix": "yarn prettier:js:fix && yarn prettier:sol:fix",
+    "prettier": "npm run prettier:js && npm run prettier:sol",
+    "prettier:fix": "npm run prettier:js:fix && npm run prettier:sol:fix",
     "prettier:js": "prettier --check **.js --ignore-path .gitignore",
     "prettier:js:fix": "prettier --check **.js --ignore-path .gitignore --write",
     "prettier:sol": "prettier --check contracts/**/*.sol",
