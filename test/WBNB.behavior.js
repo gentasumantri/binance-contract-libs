@@ -60,9 +60,9 @@ function shouldBehaveLikeBEP20(errorPrefix, initialSupply, initialHolder, recipi
             });
 
             it('emits a transfer event', async function () {
-              const { logs } = await this.token.transferFrom(tokenOwner, to, amount, { from: spender });
+              const { receipt } = await this.token.transferFrom(tokenOwner, to, amount, { from: spender });
 
-              expectEvent.inLogs(logs, 'Transfer', {
+              expectEvent(receipt, 'Transfer', {
                 src: tokenOwner,
                 dst: to,
                 wad: amount,
@@ -205,9 +205,9 @@ function shouldBehaveLikeBEP20Transfer(errorPrefix, from, to, balance, transfer)
       });
 
       it('emits a transfer event', async function () {
-        const { logs } = await transfer.call(this, from, to, amount);
+        const { receipt } = await transfer.call(this, from, to, amount);
 
-        expectEvent.inLogs(logs, 'Transfer', {
+        expectEvent(receipt, 'Transfer', {
           src: from,
           dst: to,
           wad: amount,
@@ -227,9 +227,9 @@ function shouldBehaveLikeBEP20Transfer(errorPrefix, from, to, balance, transfer)
       });
 
       it('emits a transfer event', async function () {
-        const { logs } = await transfer.call(this, from, to, amount);
+        const { receipt } = await transfer.call(this, from, to, amount);
 
-        expectEvent.inLogs(logs, 'Transfer', {
+        expectEvent(receipt, 'Transfer', {
           src: from,
           dst: to,
           wad: amount,
@@ -294,9 +294,9 @@ function shouldBehaveLikeBEP20Approve(errorPrefix, owner, spender, supply, appro
       const amount = supply.addn(1);
 
       it('emits an approval event', async function () {
-        const { logs } = await approve.call(this, owner, spender, amount);
+        const { receipt } = await approve.call(this, owner, spender, amount);
 
-        expectEvent.inLogs(logs, 'Approval', {
+        expectEvent(receipt, 'Approval', {
           src: owner,
           guy: spender,
           wad: amount,
