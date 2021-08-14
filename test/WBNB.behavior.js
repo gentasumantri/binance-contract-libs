@@ -1,5 +1,5 @@
-const { BN, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
+const { BN, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 
 function shouldBehaveLikeBEP20(errorPrefix, initialSupply, initialHolder, recipient, anotherAccount) {
   describe('total supply', function () {
