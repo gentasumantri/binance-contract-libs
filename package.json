@@ -1,7 +1,10 @@
 {
   "name": "@gsx/bsc-genesis",
   "version": "0.6.0",
-  "repository": "https://github.com/gentasumantri/bsc-genesis",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gentasumantri/bsc-genesis.git"
+  },
   "author": "Genta Sumantri <gentaaaa@outlook.co.id>",
   "license": "MIT",
   "files": [
