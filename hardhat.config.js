@@ -21,7 +21,7 @@ module.exports = {
   },
   mocha: mochaOptions,
   gasReporter: {
-    enabled: process.env.TEST_GAS_REPORT,
+    enabled: process.env.TEST_GAS_REPORT === 'true',
     currency: 'IDR',
     coinmarketcap: process.env.API_KEY_CMC,
   },
