@@ -3,7 +3,7 @@ module.exports = {
   reporterOptions: {
     json: false,
     charts: true,
-    autoOpen: true,
+    autoOpen: false,
     overwrite: true,
   },
 };
