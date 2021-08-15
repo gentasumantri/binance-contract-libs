@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/gentasumantri/bsc-genesis.git"
   },
-  "author": "Genta Sumantri <gentaaaa@outlook.co.id>",
+  "author": "gsx <gentaaaa@outlook.co.id>",
   "license": "MIT",
   "files": [
     "/contracts/**/*.sol"
